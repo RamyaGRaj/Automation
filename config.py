@@ -23,7 +23,7 @@ CLASSIFICATION_KEYWORDS = {
             "api", "docker", "devops", "configuration", "automation",
             "infrastructure", "deployment", "code", "technical",
             "development", "integration", "testing", "kubernetes",
-            "container", "microservices", "cicd", "github", "jenkins"
+            "container", "microservices", "cicd", "github", "jenkins","game"
         ],
         "weight": 1.0,
         "description": "Technical documentation and development work"
