@@ -1,8 +1,8 @@
 # Approach Document: Intelligent Document Classification & Automation
 
 ## Document Metadata
-- **Author:** Automation Solution Team
-- **Reviewers:** Technical Lead, QA
+- **Author:** Automation Solution 
+- **Reviewers:** Technical Lead
 - **Date:** 29/12/2025
 - **Version:** v1.0
 - **Project:** Multi-Platform Document Classification & File Organization System
