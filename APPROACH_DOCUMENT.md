@@ -137,30 +137,6 @@ CAPSTONE_WORK:
 - Use `shutil.move()` for atomic operations
 - Maintain local SQLite log for state tracking
 
-#### **Google Drive Implementation (Web Automation)**
-- Authenticate via Google OAuth 2.0
-- Query Drive API for root-level files
-- Download files to temp location for analysis
-- Classify using same pipeline
-- Use Drive API `parents` field to move files (no download required after classification)
-- Update remote state in Drive metadata
-
----
-
-## 4. API Structure & Sample I/O
-
-### Endpoint Design
-
-| Endpoint | Method | Input | Output |
-|----------|--------|-------|--------|
-| `/classify/desktop` | POST | `{file_path: string}` | Classification result object |
-| `/classify/gdrive` | POST | `{file_id: string, file_name: string}` | Classification result object |
-| `/process/desktop` | POST | `{run_id: string}` | Execution report with all movements |
-| `/process/gdrive` | POST | `{run_id: string, auth_token: string}` | Execution report with all movements |
-| `/validate/accuracy` | GET | `{run_count: int}` | Validation report comparing 5 runs |
-
----
-
 ### Sample I/O: Desktop Classification
 
 **Request:**
@@ -190,43 +166,6 @@ CAPSTONE_WORK:
   }
 }
 ```
-
----
-
-### Sample I/O: Google Drive Classification
-
-**Request:**
-```json
-{
-  "file_id": "1a2b3c4d5e6f7g8h9i0j",
-  "file_name": "Docker_Configuration_Checklist.docx",
-  "run_id": "run_002"
-}
-```
-
-**Response:**
-```json
-{
-  "status": "success",
-  "file_id": "1a2b3c4d5e6f7g8h9i0j",
-  "file_name": "Docker_Configuration_Checklist.docx",
-  "classification": {
-    "category": "TECHNICAL_WORK",
-    "confidence_score": 0.88,
-    "keywords_matched": ["Docker", "configuration", "checklist"],
-    "reasoning": "Docker + configuration terminology indicates technical documentation"
-  },
-  "movement": {
-    "file_id": "1a2b3c4d5e6f7g8h9i0j",
-    "previous_parent_id": "root",
-    "new_parent_id": "1q2w3e4r5t6y7u8i9o0p",
-    "status": "completed",
-    "timestamp": "2025-12-29T14:32:45Z"
-  }
-}
-```
-
----
 
 ### Sample I/O: Multi-Run Validation
 
@@ -297,51 +236,6 @@ CAPSTONE_WORK:
 - Automated testing validates reliability
 - Clear documentation enables adoption
 
-## 6. Success Criteria & Metrics
-
-### Performance Metrics
-| Metric | Target | Measurement |
-|--------|--------|-------------|
-| **Classification Latency (Desktop)** | < 500ms per file | Time from file enumeration to category assignment |
-| **Movement Latency (Desktop)** | < 200ms per file | Time to move file to target folder |
-| **Drive API Latency** | < 2s per file | Time for authentication + classification + movement |
-| **End-to-End Runtime** | < 1 min for 10 files | Total time for complete desktop run |
-| **Memory Usage** | < 200MB | Peak memory during full run |
-
-### Quality Metrics
-| Metric | Target | Measurement |
-|--------|--------|-------------|
-| **Classification Accuracy** | 100% (10/10) | All files placed in correct categories |
-| **5-Run Consistency** | 100% | Same classification result across 5 runs |
-| **Idempotency** | 100% | No duplicate files, no errors on re-runs |
-| **File Integrity** | 100% | No file corruption, content unchanged |
-| **Error Recovery** | 100% | Graceful handling of missing files/folders |
-
-### Reliability Metrics
-| Metric | Target | Measurement |
-|--------|--------|-------------|
-| **Execution Success Rate** | 100% | 5/5 runs complete without manual intervention |
-| **Log Completeness** | 100% | Every action logged with timestamp |
-| **State Consistency** | 100% | No files left in inconsistent state |
-| **Cross-Platform Parity** | 100% | Desktop & Drive produce identical results |
-
-### Validation Approach
-1. **Run 1-5:** Execute full classification pipeline on both platforms
-2. **Log Comparison:** Compare execution logs across runs
-3. **File Position Audit:** Verify all files in correct folders
-4. **Content Verification:** Checksum/hash files to ensure no data loss
-5. **State Database Check:** Confirm execution state accurately tracked
-6. **Report Generation:** Produce summary showing 100% accuracy across 5 runs
-
----
-
-## 7. References
-
-### Internal Documentation
-- Classification Knowledge Base (keywords & weights)
-- API Endpoint Specifications
-- Database Schema for state tracking
-- File Format Support Matrix
 
 ### External Libraries & APIs
 - **PyPDF2**: https://pypdf.readthedocs.io/
