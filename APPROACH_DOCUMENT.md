@@ -268,16 +268,6 @@ CAPSTONE_WORK:
 - Validate on simpler desktop environment first
 - Build comprehensive logging framework early
 
-**Timeline:** Week 1
-**Key Tasks:**
-- [x] Define classification knowledge base with keywords & weights
-- [ ] Build file content extraction module (supports PDF, DOCX, TXT, XLSX, PPTX)
-- [ ] Implement semantic scoring algorithm
-- [ ] Create desktop file movement orchestrator
-- [ ] Build execution logging & state tracking
-- [ ] Validate on desktop dataset (10 files, 3 categories)
-
----
 
 ### Phase 2: Multi-Run Reliability & State Management
 **Goal:** Ensure 100% consistency across 5 consecutive execution cycles
@@ -287,16 +277,7 @@ CAPSTONE_WORK:
 - State tracking prevents re-processing of moved files
 - Deterministic classification guarantees same output for same input
 
-**Timeline:** Week 1-2
-**Key Tasks:**
-- [ ] Implement file state database (SQLite for desktop, metadata for Drive)
-- [ ] Add idempotency checks (file already in target folder → skip)
-- [ ] Create execution runner that chains 5 runs
-- [ ] Build comparison validator that verifies run consistency
-- [ ] Generate detailed cross-run reports
-- [ ] Test error recovery (partial failures, network issues)
 
----
 
 ### Phase 3: Google Drive Web Automation & API Integration
 **Goal:** Replicate classification logic for cloud-based document management
@@ -306,17 +287,7 @@ CAPSTONE_WORK:
 - Same semantic classifier ensures platform consistency
 - OAuth 2.0 enables secure integration
 
-**Timeline:** Week 2-3
-**Key Tasks:**
-- [ ] Set up Google Drive API authentication & credentials
-- [ ] Build Drive file enumeration module
-- [ ] Implement streaming file content extraction (avoid large downloads)
-- [ ] Create Drive-specific file movement handler (uses API `parents` field)
-- [ ] Adapt state tracking for remote metadata
-- [ ] Validate on Drive dataset with 5 runs
-- [ ] Build unified API endpoints for both platforms
 
----
 
 ### Phase 4: Documentation, Testing & Deployment
 **Goal:** Deliver production-ready solution with comprehensive documentation
@@ -325,19 +296,6 @@ CAPSTONE_WORK:
 - Reproducible setup ensures others can replicate results
 - Automated testing validates reliability
 - Clear documentation enables adoption
-
-**Timeline:** Week 3
-**Key Tasks:**
-- [ ] Write comprehensive README.md (setup, usage, troubleshooting)
-- [ ] Document classification logic & keyword basis
-- [ ] Create unit tests for classifier, parser, orchestrator
-- [ ] Create integration tests for both platforms
-- [ ] Set up GitHub repository with proper structure
-- [ ] Write API documentation & usage examples
-- [ ] Create system requirements & permissions guide
-- [ ] Package as runnable solution
-
----
 
 ## 6. Success Criteria & Metrics
 
@@ -392,7 +350,7 @@ CAPSTONE_WORK:
 - **python-pptx**: https://python-pptx.readthedocs.io/
 - **spaCy**: https://spacy.io/
 - **Google Drive API**: https://developers.google.com/drive/api/v3/
-- **Google Auth**: https://google-auth.readthedocs.io/
+
 
 ### Research & Best Practices
 - Document Classification: Information Retrieval fundamentals
@@ -449,13 +407,5 @@ CAPSTONE_WORK:
 
 ---
 
-## Sign-Off
 
-| Role | Name | Date | Signature |
-|------|------|------|-----------|
-| Author | Automation Team | 29/12/2025 | ✓ |
-| Technical Lead | [TBD] | [TBD] | |
-| QA Review | [TBD] | [TBD] | |
-
-**Status:** APPROVED FOR IMPLEMENTATION ✓
 
