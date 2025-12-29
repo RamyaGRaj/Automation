@@ -280,15 +280,6 @@ CAPSTONE_WORK:
 ### TECHNICAL_WORK Category
 **Primary Keywords:** API, DevOps, Docker, configuration, automation, code, technical, documentation, development, infrastructure, deployment, integration, system, testing, debugging
 
-**Contextual Indicators:** Software development processes, infrastructure management, technical specifications, system architecture, operational procedures
-
-**Example Files in This Category:**
-- API_Documentation_Guide.md
-- DevOps_Automation_Notes.txt
-- Docker_Configuration_Checklist.docx
-
----
-
 ### CAPSTONE_WORK Category
 **Primary Keywords:** capstone, project, proposal, presentation, research, data collection, analysis, findings, conclusion, methodology, hypothesis, report, thesis
 
