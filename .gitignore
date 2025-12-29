@@ -1,0 +1,43 @@
+# Google Drive credentials (SENSITIVE)
+credentials.json
+token.pickle
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+logs/
+*.log
+
+# Database (if local testing)
+automation.db
+
+# Temporary files
+*.tmp
+*.temp
+.pytest_cache/
+
+# Environment files
+.env
+.env.local
+
+# IDE workspace
+.vscode/settings.json
